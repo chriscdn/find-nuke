@@ -24,6 +24,7 @@ const results = await findNuke("./file/path", {
   extensions: [".pdf"],
   dryRun: true,
   deleteEmptyDirectories: true,
+  verbose: false,
 });
 ```
 
@@ -34,7 +35,8 @@ const results = await findNuke("./file/path", {
 - `olderThan` _(optional)_: Deletes files older than the specified duration. This feature relies on the [@chriscdn/duration](https://github.com/chriscdn/duration) package.
 - `extensions` _(optional)_: Specifies an array of file extensions (including the leading dot) to delete.
 - `dryRun` _(optional)_: If set to `true`, lists files that would be deleted without actually deleting them. Defaults to `false`.
-- `deleteEmptyDirectories` _(optional)_: If set to `true`, removes empty directories after file deletions. Defaults to `false`.
+- `deleteEmptyDirectories` _(optional)_: If set to `true`, removes empty directories after file deletions. Does not include the root directory. Defaults to `false`.
+- `verbse` _(optional)_: When set to `true`, additional details about the action are logged to the console. The default value is `false`.
 
 ## License
 

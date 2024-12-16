@@ -9,6 +9,7 @@ type Options = {
     olderThan?: Duration;
     dryRun?: boolean;
     deleteEmptyDirectories?: boolean;
+    verbose?: boolean;
 };
 
 type NukedFile = Awaited<ReturnType<typeof findNukeFile>>;
@@ -121,20 +122,22 @@ const doDeleteEmptyDirectories = async (
 const findNuke = async (path: string, options: Options = {}) => {
     const now = new Date();
     const dryRun = options.dryRun ?? false;
+    const verbose = options.verbose ?? false;
 
     const items = await findNukeDirectory(path, now, options);
 
     const itemsToDelete = items.filter((item) => item.markedForDelete);
     const deleteEmptyDirectories = options.deleteEmptyDirectories ?? false;
 
-    console.log("************************************");
-    console.log("Root directory      : ", resolve(path));
-    console.log("Files found         : ", items.length);
-    console.log("Marked for deletion : ", itemsToDelete.length);
-    console.log("Dry run             : ", dryRun);
-    console.log("Delete Empty Dirs   : ", deleteEmptyDirectories);
-    console.log("************************************");
-
+    if (verbose) {
+        console.log("********** FIND NUKE");
+        console.log("Root directory      : ", resolve(path));
+        console.log("Files found         : ", items.length);
+        console.log("Marked for deletion : ", itemsToDelete.length);
+        console.log("Dry run             : ", dryRun);
+        console.log("Delete Empty Dirs   : ", deleteEmptyDirectories);
+        console.log("********************");
+    }
     if (dryRun) {
         // do nothing
     } else {

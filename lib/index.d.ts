@@ -4,6 +4,7 @@ type Options = {
     olderThan?: Duration;
     dryRun?: boolean;
     deleteEmptyDirectories?: boolean;
+    verbose?: boolean;
 };
 /**
  * @param path
