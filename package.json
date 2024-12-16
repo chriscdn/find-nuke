@@ -1,0 +1,32 @@
+{
+  "name": "@chriscdn/find-nuke",
+  "version": "0.0.1",
+  "description": "Recursively find and delete files with specified extensions that are older than a given duration.",
+  "repository": "https://github.com/chriscdn/find-nuke",
+  "author": "Christopher Meyer <chris@schwiiz.org>",
+  "license": "MIT",
+  "type": "module",
+  "source": "./src/index.ts",
+  "main": "./lib/find-nuke.cjs",
+  "module": "./lib/find-nuke.module.js",
+  "exports": {
+    "types": "./lib/index.d.ts",
+    "require": "./lib/find-nuke.cjs",
+    "default": "./lib/find-nuke.modern.js"
+  },
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./lib/ && microbundle --format modern,esm,cjs",
+    "dev": "microbundle watch",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@chriscdn/duration": "^1.0.3",
+    "rimraf": "^6.0.1"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8"
+  }
+}
