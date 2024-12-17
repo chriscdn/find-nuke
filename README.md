@@ -38,6 +38,14 @@ const results = await findNuke("./file/path", {
 - `deleteEmptyDirectories` _(optional)_: If set to `true`, removes empty directories after file deletions. Does not include the root directory. Defaults to `false`.
 - `verbse` _(optional)_: When set to `true`, additional details about the action are logged to the console. The default value is `false`.
 
+## Running Tests
+
+The tests simulate various use cases with different parameters.
+
+```bash
+yarn test
+```
+
 ## License
 
 [MIT](LICENSE)
