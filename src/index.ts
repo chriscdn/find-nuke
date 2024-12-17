@@ -132,6 +132,7 @@ const findNuke = async (path: string, options: Options = {}) => {
     if (verbose) {
         console.log("********** FIND NUKE");
         console.log("Root directory      : ", resolve(path));
+        console.log("Extensions          : ", options.extensions);
         console.log("Files found         : ", items.length);
         console.log("Marked for deletion : ", itemsToDelete.length);
         console.log("Dry run             : ", dryRun);
