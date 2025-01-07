@@ -7,18 +7,20 @@ A tool to recursively find and delete files with specified extensions that are o
 To install using npm:
 
 ```bash
-npm install @chriscdn/promise-semaphore
+npm install @chriscdn/find-nuke
 ```
 
 To install using yarn:
 
 ```bash
-yarn add @chriscdn/promise-semaphore
+yarn add @chriscdn/find-nuke
 ```
 
 ## Usage
 
 ```ts
+import { findNuke } from "@chriscdn/find-nuke";
+
 const results = await findNuke("./file/path", {
   olderThan: Duration.with({ days: 4 }),
   extensions: [".pdf"],
