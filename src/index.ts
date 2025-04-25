@@ -6,7 +6,7 @@ import { rimraf } from "rimraf";
 
 type Options = {
     extensions?: string[];
-    olderThan?: Duration;
+    olderThan?: Duration | number;
     dryRun?: boolean;
     deleteEmptyDirectories?: boolean;
     verbose?: boolean;
@@ -21,14 +21,18 @@ const findNukeFile = async (
     options: Options,
 ) => {
     const extensions = options.extensions;
-    const olderThan = options.olderThan;
+    const olderThan = options.olderThan ?? 0;
 
     const mtime = stats.mtime.getTime();
     const extension = extname(filePath);
 
+    const _olderThan = (olderThan instanceof Duration)
+        ? olderThan
+        : Duration.with({ milliseconds: olderThan });
+
     // If the file is older than the olderThan Duration
     const cond1 = olderThan === undefined ||
-        mtime < olderThan.subtractFrom(now).getTime();
+        mtime < _olderThan.subtractFrom(now).getTime();
 
     // If the file has a specified extension
     const cond2 = extensions === undefined ||

@@ -1,7 +1,7 @@
 import { Duration } from "@chriscdn/duration";
 type Options = {
     extensions?: string[];
-    olderThan?: Duration;
+    olderThan?: Duration | number;
     dryRun?: boolean;
     deleteEmptyDirectories?: boolean;
     verbose?: boolean;
