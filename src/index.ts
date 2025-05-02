@@ -114,7 +114,7 @@ const doDeleteEmptyDirectories = async (
     // 2. Delete this directory if it's empty. The reallyDelete argument is to
     //    prevent the root directory from begin deleted.
     if (reallyDelete && await isDirectoryAndEmpty(path)) {
-        await rimraf.rimraf(path);
+        await rimraf(path);
     }
 };
 

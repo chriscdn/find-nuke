@@ -4,6 +4,7 @@ import { Duration } from "@chriscdn/duration";
 import { promises as fsp } from "fs";
 import { resolve } from "path";
 import temp from "temp";
+import { pathExistsSync } from "path-exists";
 // temp.track();
 
 const now = new Date();
@@ -35,6 +36,9 @@ describe("All test", async () => {
 
     test("Deleting Old Documents", async () => {
         await findNuke(rootDirectory, { deleteEmptyDirectories: true });
+
+        expect(pathExistsSync(rootDirectory)).toBe(true);
+
         expect(await directoryContentsCount()).toBe(0);
 
         const subDirectory = resolve(rootDirectory, generateRandom());
