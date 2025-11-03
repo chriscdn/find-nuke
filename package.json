@@ -1,6 +1,6 @@
 {
   "name": "@chriscdn/find-nuke",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Recursively find and delete files with specified extensions that are older than a given duration.",
   "repository": "https://github.com/chriscdn/find-nuke",
   "author": "Christopher Meyer <chris@schwiiz.org>",
