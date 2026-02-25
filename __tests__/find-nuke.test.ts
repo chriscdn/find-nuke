@@ -61,7 +61,7 @@ describe("All test", async () => {
         expect(await directoryContentsCount()).toBe(8);
 
         const deleteResults1 = await findNuke(rootDirectory, {
-            olderThan: Duration.with({ days: 1 }),
+            olderThan: Duration.toMilliseconds({ days: 1 }),
             extensions: [".pdf"],
         });
 
@@ -70,7 +70,7 @@ describe("All test", async () => {
         expect(await directoryContentsCount()).toBe(7);
 
         await findNuke(rootDirectory, {
-            olderThan: Duration.with({ days: 1 }),
+            olderThan: Duration.toMilliseconds({ days: 1 }),
             deleteEmptyDirectories: true,
             extensions: [".pdf"],
         });
@@ -78,7 +78,7 @@ describe("All test", async () => {
         expect(await directoryContentsCount()).toBe(6);
 
         await findNuke(rootDirectory, {
-            olderThan: Duration.with({ days: 1 }),
+            olderThan: Duration.toMilliseconds({ days: 1 }),
             deleteEmptyDirectories: true,
             extensions: [".txt"],
         });

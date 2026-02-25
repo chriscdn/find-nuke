@@ -1,7 +1,6 @@
-import { Duration } from "@chriscdn/duration";
 type Options = {
     extensions?: string[];
-    olderThan?: Duration | number;
+    olderThan?: number;
     dryRun?: boolean;
     deleteEmptyDirectories?: boolean;
     verbose?: boolean;
@@ -12,4 +11,5 @@ type Options = {
  * @returns
  */
 declare const findNuke: (path: string, options?: Options) => Promise<string[]>;
+
 export { findNuke };
